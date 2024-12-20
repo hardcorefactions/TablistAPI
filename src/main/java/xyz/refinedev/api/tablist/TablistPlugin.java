@@ -31,16 +31,16 @@ public class TablistPlugin extends JavaPlugin {
 
         this.packetEventsAPI = PacketEvents.getAPI();
         this.packetEventsAPI.load();
-
-        this.skinAPI = new SkinAPI(this, new GsonBuilder()
-                .serializeNulls()
-                .disableHtmlEscaping()
-                .create());
     }
 
     @Override
     public void onEnable() {
         this.packetEventsAPI.init();
+
+        this.skinAPI = new SkinAPI(this, new GsonBuilder()
+                .serializeNulls()
+                .disableHtmlEscaping()
+                .create());
 
         this.tablistHandler = new TablistHandler(this);
         this.tablistHandler.init(this.packetEventsAPI);
